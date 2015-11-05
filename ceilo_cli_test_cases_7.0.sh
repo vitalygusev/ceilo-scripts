@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source openrc
+source ~/openrc
 
 SETCOLOR_SUCCESS="echo -en \\033[1;32m"
 SETCOLOR_FAILURE="echo -en \\033[1;31m"
