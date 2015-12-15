@@ -133,7 +133,7 @@ if [ $alarm_create == "true" ]; then
     
     echo "#####################################################################################"
     echo "Alarm query history"
-    query=(ceilometer query-alarm-history -f "{\"and\":[{\"<\":{\"timestamp\":\"$(date +%Y-%m-%dT%H:%M:%S)\"}},{\">\":{\"timestamp\":\"2000-01-01T01:01:01\"}},{\"=\":{\"type\":\"state transition\"}},{\"=\":{\"alarm_id\":\"$(ceilometer alarm-list | awk '/alarm_test_plan_2/{print $2}')\"}}]}")
+    query=$(ceilometer query-alarm-history -f "{\"and\":[{\"<\":{\"timestamp\":\"$(date +%Y-%m-%dT%H:%M:%S)\"}},{\">\":{\"timestamp\":\"2000-01-01T01:01:01\"}},{\"=\":{\"type\":\"state transition\"}},{\"=\":{\"alarm_id\":\"$(ceilometer alarm-list | awk '/alarm_test_plan_2/{print $2}')\"}}]}")
     check_empty "$?" $query
     
     echo "#####################################################################################"
