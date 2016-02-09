@@ -5,7 +5,7 @@ import argparse
 import copy
 import datetime
 import itertools
-from oslo.config import cfg
+from oslo_config import cfg
 
 from ceilometer.storage import impl_mongodb
 
@@ -66,7 +66,7 @@ def record_samples(samples_count=50000, resources_count=5000,
     cfg.CONF(["--config-file", "/etc/ceilometer/ceilometer.conf"],
              project='ceilometer')
 
-    cl = impl_mongodb.Connection(cfg.CONF)
+    cl = impl_mongodb.Connection(cfg.CONF.database.connection)
     db = cl.db
     one_second = datetime.timedelta(seconds=1) * (conf.get('interval') or 1)
     timestamp = datetime.datetime.utcnow() - one_second * (samples_count + 1)

@@ -34,6 +34,6 @@ class TestMandatoryLimits(unittest.TestCase):
         self.assertEqual(100, len(event_list))
 
 
-suite = unittest.TestLoader().loadTestsFromTestCase(TestRegExpr)
+suite = unittest.TestLoader().loadTestsFromTestCase(TestMandatoryLimits)
 unittest.TextTestRunner(verbosity=2).run(suite)
 
